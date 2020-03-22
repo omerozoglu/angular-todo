@@ -6,9 +6,12 @@
           {{ title }}
         </h3>
         <div class="input-group">
-          <input type="text" class="form-control" />
+          <input type="text" #todoText class="form-control" />
           <div class="input-group-append">
-            <button class="btn btn-primary">
+            <button
+              class="btn btn-primary"
+              (click)="addItem(todoText.value); todoText.value = ''"
+            >
               Add
             </button>
           </div>
@@ -38,7 +41,7 @@
                 <div *ngSwitchCase="true">Yes</div>
                 <div *ngSwitchCase="false">No</div>
               </td>
-            </tr>
+            </div>
           </tbody>
         </table>
       </div>
