@@ -11,12 +11,16 @@ import { TodoItem } from "./Model/todoitem.model";
 })
 export class AppComponent {
   appModel: AppModel = new AppModel();
+  isDisplay = false;
 
   getTitle() {
     return this.appModel.title;
   }
 
   getTodoItems() {
+    if (this.isDisplay) {
+      return this.appModel.items;
+    }
     return this.appModel.items.filter(i => !i.action);
   }
 
