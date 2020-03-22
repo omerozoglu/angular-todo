@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AppModel } from "./Model/app.model";
 
 @Component({
   selector: "app-root",
@@ -6,12 +7,14 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "AngularToDo";
-  items: any = [
-    { description: "Breakfast", action: "No" },
-    { description: "Jogging", action: "No" },
-    { description: "Go to GYM", action: "No" },
-    { description: "Go to Mall", action: "No" },
-    { description: "Pay tax", action: "No" }
-  ];
+  appModel: AppModel = new AppModel();
+  getTitle() {
+    return this.appModel.title;
+  }
+  getTodoItems() {
+    return this.appModel.items;
+  }
+  trackByFn(index: number, item: any): number {
+    return index;
+  }
 }
