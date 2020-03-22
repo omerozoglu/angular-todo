@@ -29,9 +29,11 @@
                 let i = index
               "
             >
-              <th>{{ i + 1 }}</th>
-
+              <td>{{ i + 1 }}</td>
               <td>{{ item.description }}</td>
+              <td>
+                <input type="checkbox" [(ngModel)]="item.action" />
+              </td>
               <td [ngSwitch]="item.action">
                 <div *ngSwitchCase="true">Yes</div>
                 <div *ngSwitchCase="false">No</div>
